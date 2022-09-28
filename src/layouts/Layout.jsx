@@ -1,8 +1,7 @@
 import { css } from '@emotion/css';
-import { CgMenu } from 'react-icons/cg';
-import { FaApple } from 'react-icons/fa';
+import { Header } from '../components/common';
 
-const black = '#101010';
+const black = '#171717';
 const white = '#fff';
 const gray = '#f2f2f2';
 
@@ -13,7 +12,6 @@ export const Layout = ({ children }) => {
       'header'
       'main-area';
     grid-template-rows: 60px 1fr;
-
     @media (min-width: 1024px) {
       grid-template-areas:
         'header main-area'
@@ -29,9 +27,6 @@ export const Layout = ({ children }) => {
     color: ${white};
     grid-area: header;
     padding: 0 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   `;
 
   const mainAreaCss = css`
@@ -46,9 +41,7 @@ export const Layout = ({ children }) => {
   return (
     <div className={gridCss}>
       <header className={headerCss}>
-        <FaApple size="32"></FaApple>
-
-        <CgMenu size="32"></CgMenu>
+        <Header></Header>
       </header>
 
       <div className={mainAreaCss}>

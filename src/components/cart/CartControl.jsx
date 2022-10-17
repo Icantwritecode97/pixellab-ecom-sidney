@@ -1,6 +1,14 @@
 import Link from 'next/link';
+import { useContext, useState } from 'react';
+import { AppContext } from '../../pages/_app';
 
-export const CartControl = ({ cart }) => {
+export const CartControl = () => {
+  const { cart } = useContext(AppContext);
+
+  if (cart === null) {
+    return <></>;
+  }
+
   const { products } = cart;
 
   const cartQty = products.reduce((cartQty, product) => {

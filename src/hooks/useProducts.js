@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { baseUrl } from '..';
 
-export const useCart = (cartId = 2) => {
-  const [cart, setCart] = useState(null);
+export const useProducts = (limit = 20) => {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/carts/${cartId}`)
+    fetch(`${baseUrl}/products?limit=${limit}`)
       .then((response) => {
         return response.json();
       })
       .then((result) => {
-        setCart(result);
+        setProducts(result);
       });
-  }, []);
+  }, [setProducts]);
 
-  return cart;
+  return [products];
 };
